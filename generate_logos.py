@@ -25,24 +25,21 @@ def process_logos():
     white_img.save('logo-branca.png')
     print("Saved logo-branca.png")
 
-    # Generate Silver Logo (Prata)
-    silver_img = Image.new("RGBA", img.size)
-    silver_pixels = silver_img.load()
+    # Generate Monochromatic Logo (Grayscale)
+    mono_img = Image.new("RGBA", img.size)
+    mono_pixels = mono_img.load()
     for y in range(img.size[1]):
         for x in range(img.size[0]):
             r, g, b, a = pixels[x, y]
             if a > 0:
-                # Formula for a premium silver/platinum look
-                # We want it bright but with depth
+                # Standard grayscale formula (luminosity)
                 v = int(0.299 * r + 0.587 * g + 0.114 * b)
-                # Boost brightness for silver feel
-                v = min(255, int(v * 1.5) + 100) 
-                silver_pixels[x, y] = (v, v, v, a)
+                mono_pixels[x, y] = (v, v, v, a)
             else:
-                silver_pixels[x, y] = (0, 0, 0, 0)
+                mono_pixels[x, y] = (0, 0, 0, 0)
     
-    silver_img.save('logo-prata.png')
-    print("Saved logo-prata.png")
+    mono_img.save('logo-monocromatica.png')
+    print("Saved logo-monocromatica.png")
 
 if __name__ == "__main__":
     process_logos()
