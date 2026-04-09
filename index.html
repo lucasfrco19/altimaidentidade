@@ -31,7 +31,7 @@
       background:linear-gradient(160deg,var(--cream) 0%,#F7F0DC 40%,#EDE3C4 70%,rgba(212,175,55,0.15) 100%)}
     .capa::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;top:-250px;right:-250px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%)}
     .capa::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;bottom:-150px;left:-150px;background:radial-gradient(circle,rgba(212,175,55,0.06) 0%,transparent 70%)}
-    .capa-logo{max-width:380px;width:80%;height:auto;margin-bottom:40px;z-index:1;filter:drop-shadow(0 4px 20px rgba(212,175,55,0.2))}
+    .capa-logo{max-width:520px;width:85%;height:auto;margin-bottom:40px;z-index:1;filter:drop-shadow(0 4px 20px rgba(212,175,55,0.2))}
     .capa h1{font-size:1.4rem;font-weight:300;letter-spacing:6px;text-transform:uppercase;color:var(--gold-dark);z-index:1;margin-bottom:8px}
     .capa small{position:absolute;bottom:40px;font-size:0.85rem;letter-spacing:3px;text-transform:uppercase;color:var(--graphite-light);opacity:0.6;font-weight:400}
 
@@ -102,7 +102,9 @@
     .logo-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
     .logo-card.dark{background:var(--dark)}
     .logo-card.mono{background:var(--white);border:1px solid var(--cream-dark)}
-    .logo-card img{width:100%;max-width:260px;margin:0 auto 25px;display:block;height:auto;object-fit:contain}
+    .logo-card img{width:100%;max-width:360px;margin:0 auto 25px;display:block;height:auto;object-fit:contain}
+    .logo-section-title{font-size:1.8rem;color:var(--gold-light);margin:50px 0 25px;font-weight:600;letter-spacing:1px}
+    .logo-section-title:first-of-type{margin-top:10px}
     .logo-card h4{font-size:1.4rem;margin-bottom:8px;color:var(--graphite);font-weight:700}
     .logo-card.dark h4{color:var(--cream)}
     .logo-card p{color:var(--graphite-light);font-size:0.9rem}
@@ -358,11 +360,13 @@
   <section class="secao secao-dark" id="logotipo">
     <h2 class="fade-in">Logotipos</h2>
     <p class="subtitulo fade-in">Versões do logotipo para diferentes contextos de aplicação.</p>
+
+    <!-- GRUPO: Logo Completo -->
+    <h3 class="logo-section-title fade-in">Logo Completo</h3>
     <div class="logo-grid fade-in">
-      <!-- Logo Completo - Principal -->
       <div class="logo-card">
         <img src="logo.png" alt="Logo Completo — Versão Principal" />
-        <h4>Logo Completo — Principal</h4>
+        <h4>Versão Principal</h4>
         <p>Ouro sobre fundo creme — uso preferencial</p>
         <div class="logo-download-container">
           <a href="logo.png" download="logo-altima-principal.png" class="download-btn">
@@ -374,25 +378,9 @@
           </a>
         </div>
       </div>
-      <!-- Logo Escrita - Principal -->
-      <div class="logo-card">
-        <img src="logoescrita.png" alt="Logo Escrita — Versão Principal" />
-        <h4>Logo Escrita — Principal</h4>
-        <p>Versão horizontal com escrita — uso preferencial</p>
-        <div class="logo-download-container">
-          <a href="logoescrita.png" download="logoescrita-altima-principal.png" class="download-btn">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
-              <path d="M3 19v-2h18v2H3z" fill="white"/>
-            </svg>
-            Baixar
-          </a>
-        </div>
-      </div>
-      <!-- Logo Completo - Negativa -->
       <div class="logo-card dark">
         <img src="logonegativa.png" alt="Logo Completo — Versão Negativa" />
-        <h4>Logo Completo — Negativa</h4>
+        <h4>Versão Negativa</h4>
         <p>Para fundos escuros ou pretos</p>
         <div class="logo-download-container">
           <a href="logonegativa.png" download="logo-altima-negativa.png" class="download-btn">
@@ -404,25 +392,9 @@
           </a>
         </div>
       </div>
-      <!-- Logo Escrita - Negativa -->
-      <div class="logo-card dark">
-        <img src="logoescritanegativa.png" alt="Logo Escrita — Versão Negativa" />
-        <h4>Logo Escrita — Negativa</h4>
-        <p>Versão horizontal para fundos escuros</p>
-        <div class="logo-download-container">
-          <a href="logoescritanegativa.png" download="logoescrita-altima-negativa.png" class="download-btn">
-            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
-              <path d="M3 19v-2h18v2H3z" fill="white"/>
-            </svg>
-            Baixar
-          </a>
-        </div>
-      </div>
-      <!-- Logo Completo - Monocromática -->
       <div class="logo-card mono">
         <img src="logomonocromatica.png" alt="Logo Completo — Versão Monocromática" />
-        <h4>Logo Completo — Monocromática</h4>
+        <h4>Versão Monocromática</h4>
         <p>Para impressões em uma única cor</p>
         <div class="logo-download-container">
           <a href="logomonocromatica.png" download="logo-altima-monocromatica.png" class="download-btn">
@@ -434,11 +406,43 @@
           </a>
         </div>
       </div>
-      <!-- Logo Escrita - Monocromática -->
+    </div>
+
+    <!-- GRUPO: Logo Escrita -->
+    <h3 class="logo-section-title fade-in">Logo Escrita</h3>
+    <div class="logo-grid fade-in">
+      <div class="logo-card">
+        <img src="logoescrita.png" alt="Logo Escrita — Versão Principal" />
+        <h4>Versão Principal</h4>
+        <p>Versão horizontal com escrita — uso preferencial</p>
+        <div class="logo-download-container">
+          <a href="logoescrita.png" download="logoescrita-altima-principal.png" class="download-btn">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+              <path d="M3 19v-2h18v2H3z" fill="white"/>
+            </svg>
+            Baixar
+          </a>
+        </div>
+      </div>
+      <div class="logo-card dark">
+        <img src="logoescritanegativa.png" alt="Logo Escrita — Versão Negativa" />
+        <h4>Versão Negativa</h4>
+        <p>Para fundos escuros ou pretos</p>
+        <div class="logo-download-container">
+          <a href="logoescritanegativa.png" download="logoescrita-altima-negativa.png" class="download-btn">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+              <path d="M3 19v-2h18v2H3z" fill="white"/>
+            </svg>
+            Baixar
+          </a>
+        </div>
+      </div>
       <div class="logo-card mono">
         <img src="logoescritamonocromatica.png" alt="Logo Escrita — Versão Monocromática" />
-        <h4>Logo Escrita — Monocromática</h4>
-        <p>Versão horizontal para impressões em uma cor</p>
+        <h4>Versão Monocromática</h4>
+        <p>Para impressões em uma única cor</p>
         <div class="logo-download-container">
           <a href="logoescritamonocromatica.png" download="logoescrita-altima-monocromatica.png" class="download-btn">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
