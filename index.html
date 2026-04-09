@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{overflow-x:hidden}
     html{scroll-behavior:smooth}
     :root{
       --gold:#D4AF37;--gold-light:#E8D48B;--gold-dark:#B8960C;
@@ -81,9 +80,15 @@
 
     /* ========== ÍCONE DO LOGO ========== */
     .icon-display{display:flex;justify-content:center;align-items:center;margin:40px 0;padding:60px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .icon-display.dark-bg{background:var(--dark)}
+    .icon-display.mono-bg{background:var(--white);border:1px solid var(--cream-dark)}
     .icon-display img{max-width:320px;width:100%;height:auto}
     .icon-text{max-width:700px;font-size:1.1rem;line-height:1.9;color:var(--graphite-light);margin-bottom:30px}
     .icon-download-container{text-align:center;margin-top:10px}
+    .icon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:35px;margin-top:40px}
+    .icon-card{text-align:center}
+    .icon-card h4{font-size:1.3rem;margin-top:15px;margin-bottom:6px;color:var(--graphite);font-weight:700}
+    .icon-card p{color:var(--graphite-light);font-size:0.9rem;margin-bottom:15px}
 
     /* ========== BOTÃO DOWNLOAD ========== */
     .download-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);padding:14px 28px;border-radius:10px;text-decoration:none;font-size:0.9rem;font-weight:600;letter-spacing:0.5px;transition:var(--transition);border:none;cursor:pointer;box-shadow:0 4px 15px rgba(212,175,55,0.3)}
@@ -92,7 +97,7 @@
     .download-icon{width:18px;height:18px;fill:white;display:inline-block;vertical-align:middle}
 
     /* ========== LOGOTIPO ========== */
-    .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px;margin-top:10px}
+    .logo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px;margin-top:10px}
     .logo-card{background:var(--cream);padding:50px 40px;border-radius:var(--radius);text-align:center;transition:var(--transition);box-shadow:var(--shadow)}
     .logo-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
     .logo-card.dark{background:var(--dark)}
@@ -119,7 +124,7 @@
     .galeria-item:hover .galeria-caption{transform:translateY(0)}
     .galeria-caption h4{font-size:1.1rem;margin-bottom:4px;font-weight:700}
     .galeria-caption p{font-size:0.85rem;opacity:0.8}
-    .galeria-item .download-overlay{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:white;padding:8px 14px;border-radius:8px;font-size:0.8rem;opacity:0;transition:opacity 0.4s;text-decoration:none;z-index:10;display:inline-flex;align-items:center;gap:6px;font-weight:500}
+    .galeria-item .download-overlay{position:absolute;bottom:12px;right:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:white;padding:8px 14px;border-radius:8px;font-size:0.8rem;opacity:0;transition:opacity 0.4s;text-decoration:none;z-index:10;display:inline-flex;align-items:center;gap:6px;font-weight:500}
     .galeria-item:hover .download-overlay{opacity:1}
     .download-overlay .download-icon{width:14px;height:14px}
     /* placeholder for missing images */
@@ -143,14 +148,13 @@
     /* ========== LIGHTBOX ========== */
     .lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(30,30,30,0.95);z-index:1000;justify-content:center;align-items:center;padding:20px;backdrop-filter:blur(10px)}
     .lightbox.active{display:flex}
-    .lightbox-content{position:relative;max-width:90%;max-height:90%;display:inline-flex;align-items:center;justify-content:center}
-    .lightbox-content img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:12px;display:block}
-    .lightbox-header{position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:15px;z-index:1001}
-    .lightbox-close{color:white;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold-dark));width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--transition);border:none;padding:0;box-shadow:0 4px 20px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.1)}
-    .lightbox-close:hover{transform:scale(1.1);background:linear-gradient(135deg,var(--gold-light),var(--gold))}
-    .lightbox-download{color:white;font-size:0.95rem;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold-dark));padding:0 25px;height:45px;border-radius:12px;display:flex;align-items:center;gap:10px;transition:var(--transition);text-decoration:none;white-space:nowrap;min-width:fit-content;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.1)}
-    .lightbox-download:hover{transform:translateY(-2px);background:linear-gradient(135deg,var(--gold-light),var(--gold))}
-    .lightbox-download .download-icon{width:18px;height:18px}
+    .lightbox-content{position:relative;max-width:90%;max-height:90%}
+    .lightbox-content img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:12px}
+    .lightbox-close{position:absolute;top:-45px;right:0;color:white;font-size:1.8rem;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold-dark));width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+    .lightbox-close:hover{transform:scale(1.1)}
+    .lightbox-download{position:absolute;top:-45px;right:55px;color:white;font-size:0.9rem;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold-dark));padding:10px 20px;border-radius:8px;display:flex;align-items:center;gap:8px;transition:var(--transition);text-decoration:none}
+    .lightbox-download:hover{transform:translateY(-2px)}
+    .lightbox-download .download-icon{width:16px;height:16px}
 
     /* ========== SEÇÃO BÔNUS ========== */
     .bonus-secao{background:linear-gradient(135deg,rgba(212,175,55,0.08),rgba(212,175,55,0.02));padding:100px 8%;text-align:center;border-top:1px solid rgba(212,175,55,0.1)}
@@ -178,13 +182,13 @@
       .capa-logo{max-width:260px}
       .capa h1{font-size:1rem;letter-spacing:3px}
       .capa small{font-size:0.75rem}
-      .secao{padding:60px 8%;min-height:auto;text-align:center}
-      .secao h2{font-size:2.2rem;margin-bottom:12px;text-align:center}
-      .secao .subtitulo{font-size:1rem;margin-bottom:35px;margin-left:auto;margin-right:auto;text-align:center}
-      .conceito-texto,.historia-texto,.icon-text{font-size:1rem;line-height:1.8;margin-left:auto;margin-right:auto;text-align:center}
+      .secao{padding:60px 5%;min-height:auto}
+      .secao h2{font-size:2.2rem;margin-bottom:12px}
+      .secao .subtitulo{font-size:1rem;margin-bottom:35px}
+      .conceito-texto{font-size:1rem;line-height:1.8}
       .cores-grid,.logo-grid,.app-grid{grid-template-columns:1fr;gap:20px}
       .galeria-grid{grid-template-columns:1fr;gap:20px}
-      .galeria-item{min-height:auto;aspect-ratio:3.5/4}
+      .galeria-item{min-height:280px}
       .valores-grid{grid-template-columns:1fr}
       .tipo-exemplo{padding:25px}
       .display-serif{font-size:2.2rem}
@@ -192,10 +196,8 @@
       .historia-destaque{padding:30px 25px}
       .historia-destaque blockquote{font-size:1.4rem}
       .logo-card{padding:35px 25px}
-      .lightbox-header{position:fixed;top:20px;right:20px;gap:10px}
-      .lightbox-download{padding:0 15px;font-size:0.8rem;height:38px;border-radius:10px}
-      .lightbox-download .download-icon{width:14px;height:14px}
-      .lightbox-close{width:38px;height:38px}
+      .galeria-item{aspect-ratio:16/10}
+      .app-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:480px){
       .app-grid{grid-template-columns:1fr}
@@ -207,7 +209,7 @@
 
   <!-- CAPA -->
   <section class="capa" id="capa">
-    <img src="logo sem fundo.png" alt="Logo ALTIMA Clínica Integrada" class="capa-logo" />
+    <img src="logo.png" alt="Logo ALTIMA Clínica Integrada" class="capa-logo" />
     <h1>Manual de Identidade Visual</h1>
     <small>Clínica Integrada | Branding 2026</small>
   </section>
@@ -282,15 +284,6 @@
         <strong>Pesos:</strong> Regular (400), Medium (500), SemiBold (600), Bold (700)<br/>
         <strong>Uso:</strong> Títulos principais, subtítulos, citações de destaque, elementos de impacto visual. A serifa clássica transmite tradição, confiança e sofisticação — valores essenciais no ambiente médico.
       </div>
-      <div style="margin-top: 25px;">
-        <a href="assets/fonts/Cormorant_Garamond.zip" download class="download-btn">
-          <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
-            <path d="M3 19v-2h18v2H3z" fill="white"/>
-          </svg>
-          Baixar Fonte Cormorant
-        </a>
-      </div>
     </div>
     <div class="tipo-exemplo fade-in">
       <div class="tipo-label">Textos Corridos</div>
@@ -302,50 +295,77 @@
         <strong>Pesos:</strong> Light (300), Regular (400), Medium (500), SemiBold (600), Bold (700)<br/>
         <strong>Uso:</strong> Parágrafos, descrições, conteúdo informativo, interface digital, sinalização. A geométrica limpa garante legibilidade em qualquer escala e contexto.
       </div>
-      <div style="margin-top: 25px;">
-        <a href="assets/fonts/Montserrat.zip" download class="download-btn">
-          <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
-            <path d="M3 19v-2h18v2H3z" fill="white"/>
-          </svg>
-          Baixar Fonte Montserrat
-        </a>
-      </div>
     </div>
   </section>
 
   <!-- ÍCONE DO LOGO -->
   <section class="secao secao-alt" id="icone">
-    <h2 class="fade-in">Ícone do Logo</h2>
+    <h2 class="fade-in">Ícone do Logotipo</h2>
     <p class="subtitulo fade-in">O símbolo que representa a essência da ALTIMA.</p>
     <p class="icon-text fade-in">
       O símbolo isolado da ALTIMA é composto por linhas interligadas que formam a letra <strong>"A"</strong>. Essas linhas representam <strong>conexão</strong> entre as diferentes especialidades, <strong>equilíbrio</strong> entre corpo e mente, e a <strong>integração de cuidados</strong> — pilares da filosofia da clínica. O desenho fluido e contínuo simboliza a jornada completa do paciente dentro do ecossistema de saúde da ALTIMA.
     </p>
-    <div class="icon-download-container fade-in">
-      <div class="icon-display">
-        <img src="logo sem fundo.png" alt="Ícone ALTIMA — Símbolo das linhas interligadas" />
+    <div class="icon-grid fade-in">
+      <!-- Ícone Principal -->
+      <div class="icon-card">
+        <div class="icon-display">
+          <img src="iconlogo.png" alt="Ícone ALTIMA — Versão Principal" />
+        </div>
+        <h4>Versão Principal</h4>
+        <p>Ouro sobre fundo claro — uso preferencial</p>
+        <a href="iconlogo.png" download="icone-altima-principal.png" class="download-btn">
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+            <path d="M3 19v-2h18v2H3z" fill="white"/>
+          </svg>
+          Baixar Ícone
+        </a>
       </div>
-      <a href="logo sem fundo.png" download="icone-altima-clinica.jpg" class="download-btn">
-        <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
-          <path d="M3 19v-2h18v2H3z" fill="white"/>
-        </svg>
-        Baixar Ícone
-      </a>
+      <!-- Ícone Negativa -->
+      <div class="icon-card">
+        <div class="icon-display dark-bg">
+          <img src="iconlogonegativa.png" alt="Ícone ALTIMA — Versão Negativa" />
+        </div>
+        <h4>Versão Negativa</h4>
+        <p>Para fundos escuros ou pretos</p>
+        <a href="iconlogonegativa.png" download="icone-altima-negativa.png" class="download-btn">
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+            <path d="M3 19v-2h18v2H3z" fill="white"/>
+          </svg>
+          Baixar Ícone
+        </a>
+      </div>
+      <!-- Ícone Monocromática -->
+      <div class="icon-card">
+        <div class="icon-display mono-bg">
+          <img src="iconlogomonocromatica.png" alt="Ícone ALTIMA — Versão Monocromática" />
+        </div>
+        <h4>Versão Monocromática</h4>
+        <p>Para impressões em uma única cor</p>
+        <a href="iconlogomonocromatica.png" download="icone-altima-monocromatica.png" class="download-btn">
+          <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+            <path d="M3 19v-2h18v2H3z" fill="white"/>
+          </svg>
+          Baixar Ícone
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- LOGOTIPO -->
   <section class="secao secao-dark" id="logotipo">
-    <h2 class="fade-in">Logotipo</h2>
+    <h2 class="fade-in">Logotipos</h2>
     <p class="subtitulo fade-in">Versões do logotipo para diferentes contextos de aplicação.</p>
     <div class="logo-grid fade-in">
+      <!-- Logo Completo - Principal -->
       <div class="logo-card">
-        <img src="logo sem fundo.png" alt="Logo Principal — Ouro sobre Creme" />
-        <h4>Versão Principal</h4>
+        <img src="logo.png" alt="Logo Completo — Versão Principal" />
+        <h4>Logo Completo — Principal</h4>
         <p>Ouro sobre fundo creme — uso preferencial</p>
         <div class="logo-download-container">
-          <a href="logo sem fundo.png" download="logo-principal-altima.jpg" class="download-btn">
+          <a href="logo.png" download="logo-altima-principal.png" class="download-btn">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
               <path d="M3 19v-2h18v2H3z" fill="white"/>
@@ -354,12 +374,28 @@
           </a>
         </div>
       </div>
+      <!-- Logo Escrita - Principal -->
+      <div class="logo-card">
+        <img src="logoescrita.png" alt="Logo Escrita — Versão Principal" />
+        <h4>Logo Escrita — Principal</h4>
+        <p>Versão horizontal com escrita — uso preferencial</p>
+        <div class="logo-download-container">
+          <a href="logoescrita.png" download="logoescrita-altima-principal.png" class="download-btn">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+              <path d="M3 19v-2h18v2H3z" fill="white"/>
+            </svg>
+            Baixar
+          </a>
+        </div>
+      </div>
+      <!-- Logo Completo - Negativa -->
       <div class="logo-card dark">
-        <img src="logo-branca.png" alt="Logo Negativa — Branca sobre Escuro" />
-        <h4>Versão Negativa</h4>
+        <img src="logonegativa.png" alt="Logo Completo — Versão Negativa" />
+        <h4>Logo Completo — Negativa</h4>
         <p>Para fundos escuros ou pretos</p>
         <div class="logo-download-container">
-          <a href="logo-branca.png" download="logo-negativa-altima.png" class="download-btn">
+          <a href="logonegativa.png" download="logo-altima-negativa.png" class="download-btn">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
               <path d="M3 19v-2h18v2H3z" fill="white"/>
@@ -368,12 +404,43 @@
           </a>
         </div>
       </div>
+      <!-- Logo Escrita - Negativa -->
+      <div class="logo-card dark">
+        <img src="logoescritanegativa.png" alt="Logo Escrita — Versão Negativa" />
+        <h4>Logo Escrita — Negativa</h4>
+        <p>Versão horizontal para fundos escuros</p>
+        <div class="logo-download-container">
+          <a href="logoescritanegativa.png" download="logoescrita-altima-negativa.png" class="download-btn">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+              <path d="M3 19v-2h18v2H3z" fill="white"/>
+            </svg>
+            Baixar
+          </a>
+        </div>
+      </div>
+      <!-- Logo Completo - Monocromática -->
       <div class="logo-card mono">
-        <img src="logo-monocromatica.png" alt="Logo Monocromática" />
-        <h4>Versão Monocromática</h4>
+        <img src="logomonocromatica.png" alt="Logo Completo — Versão Monocromática" />
+        <h4>Logo Completo — Monocromática</h4>
         <p>Para impressões em uma única cor</p>
         <div class="logo-download-container">
-          <a href="logo-monocromatica.png" download="logo-mono-altima.png" class="download-btn">
+          <a href="logomonocromatica.png" download="logo-altima-monocromatica.png" class="download-btn">
+            <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+              <path d="M3 19v-2h18v2H3z" fill="white"/>
+            </svg>
+            Baixar
+          </a>
+        </div>
+      </div>
+      <!-- Logo Escrita - Monocromática -->
+      <div class="logo-card mono">
+        <img src="logoescritamonocromatica.png" alt="Logo Escrita — Versão Monocromática" />
+        <h4>Logo Escrita — Monocromática</h4>
+        <p>Versão horizontal para impressões em uma cor</p>
+        <div class="logo-download-container">
+          <a href="logoescritamonocromatica.png" download="logoescrita-altima-monocromatica.png" class="download-btn">
             <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
               <path d="M3 19v-2h18v2H3z" fill="white"/>
@@ -458,7 +525,7 @@
           <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/><path d="M3 19v-2h18v2H3z" fill="white"/></svg>
           Baixar
         </a>
-        <div class="galeria-caption"><h4>Posts / Conteúdos</h4><p>Marca aplicada a videos e posts promocionais</p></div>
+        <div class="galeria-caption"><h4>Janela / Fachada</h4><p>Marca aplicada em vidro e fachada</p></div>
       </div>
       <div class="galeria-item" onclick="openLightbox('mockup-cadeira.png','Cadeira de Escritório')">
         <img src="mockup-cadeira.png" alt="Cadeira de Escritório" />
@@ -535,21 +602,14 @@
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-content">
-      <div class="lightbox-header">
-        <a id="lightbox-download" href="" download="" class="lightbox-download" onclick="event.stopPropagation();">
-          <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
-            <path d="M19 18H5v2h14v-2z" fill="white"/>
-          </svg>
-          Baixar Imagem
-        </a>
-        <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Fechar">
-          <svg viewBox="0 0 24 24" width="22" height="22" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
+      <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+      <a id="lightbox-download" href="" download="" class="lightbox-download" onclick="event.stopPropagation();">
+        <svg class="download-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 15.577l-3.539-3.538 1.414-1.415L11 12.75V3h2v9.75l1.125-1.125 1.414 1.414L12 15.577z" fill="white"/>
+          <path d="M3 19v-2h18v2H3z" fill="white"/>
+        </svg>
+        Baixar Imagem
+      </a>
       <img id="lightbox-img" src="" alt="" />
     </div>
   </div>
@@ -585,7 +645,7 @@
       lb.classList.add('active');document.body.style.overflow='hidden';
     }
     function closeLightbox(e){
-      if(e.target.id==='lightbox'||e.target.closest('.lightbox-close')||e.target.tagName==='span'){
+      if(e.target.id==='lightbox'||e.target.classList.contains('lightbox-close')||e.target.tagName==='SPAN'){
         document.getElementById('lightbox').classList.remove('active');document.body.style.overflow='auto';
       }
     }
